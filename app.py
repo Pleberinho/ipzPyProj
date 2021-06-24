@@ -88,13 +88,7 @@ def edit_employee(id):
     return make_response(render_template('employee.html', title='Редагування працівника', form=form))
 
 
-def main():
-    db_session.global_init("db.sqlite")
-    app.register_blueprint(core_bp)
-    app.register_blueprint(employee_api.api_bp, url_prefix='/api')
-    init_defaults()
-    app.run(debug=True)
-
-
-if __name__ == '__main__':
-    main()
+db_session.global_init("db.sqlite")
+app.register_blueprint(core_bp)
+app.register_blueprint(employee_api.api_bp, url_prefix='/api')
+init_defaults()
