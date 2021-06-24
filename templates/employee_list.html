@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+    <h1 align="center">Список працівників</h1>
+    <a href="/employee" class="btn btn-secondary">Добавити працівника</a>
+    {% for employee in employees %}
+        <h3>Працівник # {{ employee.id }}</h3>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Імя</th>
+                    <th scope="col">Прізвище</th>
+                    <th scope="col">По-батькові</th>
+                    <th scope="col">Адреса</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Номер телефону</th>
+                    <th scope="col">Зарплата</th>
+                    <th scope="col">Посада</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ employee.name }}</td>
+                    <td>{{ employee.surname }}</td>
+                    <td>{{ employee.middle_name }}</td>
+                    <td>{{ employee.address }}</td>
+                    <td>{{ employee.email }}</td>
+                    <td>{{ employee.phone }}</td>
+                    <td>{{ employee.salary }}</td>
+                    <td>{{ employee.category.title }}</td>
+                </tr>
+            </tbody>
+        </table>
+    {% endfor %}
+{% endblock %}
